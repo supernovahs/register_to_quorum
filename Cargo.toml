@@ -1,0 +1,13 @@
+[package]
+name = "register_in_quorum"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+alloy = "0.9"
+eigensdk = {version = "0.2.0", features = ["full"]}
+eigen-types = "0.2.0"
+tokio = "1.43.0"
+eyre = "0.6.12"
+lazy_static = "1.5.0"
+eigen-utils = "0.2.0"
