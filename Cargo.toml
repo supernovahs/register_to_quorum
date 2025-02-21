@@ -5,8 +5,8 @@ edition = "2021"
 
 [dependencies]
 alloy = "0.9"
-eigensdk = {version = "0.2.0", features = ["full"]}
-eigen-types = "0.2.0"
+eigensdk = {version = "0.4.0", features = ["full"]}
+eigen-types = "0.4.0"
 tokio = "1.43.0"
 eyre = "0.6.12"
 lazy_static = "1.5.0"
