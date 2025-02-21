@@ -3,14 +3,10 @@ use alloy::primitives::{address, Address, U256};
 use alloy::primitives::{Bytes, FixedBytes};
 use alloy::providers::WalletProvider;
 use eigen_types::operator::Operator;
-use eigen_utils::core::delegationmanager::DelegationManager;
-use eigen_utils::middleware::registrycoordinator::RegistryCoordinator;
-use eigen_utils::middleware::stakeregistry::StakeRegistry;
-use eigen_utils::sdk::mockavsservicemanager::MockAvsServiceManager;
 use eigensdk::client_avsregistry::writer::AvsRegistryChainWriter;
 use eigensdk::client_elcontracts::reader::ELChainReader;
 use eigensdk::client_elcontracts::writer::ELChainWriter;
-use eigensdk::common::{get_provider, get_signer};
+use eigensdk::common::get_signer;
 use eigensdk::crypto_bls::BlsKeyPair;
 use eigensdk::logging::get_test_logger;
 use eigensdk::testing_utils::m2_holesky_constants::{
@@ -32,17 +28,6 @@ async fn main() -> Result<()> {
     let OPACITY_REGISTRY_COORDINATOR = address!("3e43AA225b5cB026C5E8a53f62572b10D526a50B");
     let signer = get_signer(&pvt_key, &holesky_provider);
     let test_logger = get_test_logger();
-    // let contract_registry_coordinator = RegistryCoordinator::new(OPACITY_REGISTRY_COORDINATOR, get_provider(&holesky_provider));
-    // let s = contract_registry_coordinator.serviceManager().call().await?._0;
-    // let y =contract_registry_coordinator.blsApkRegistry().call().await?._0;
-    // let u = contract_registry_coordinator.stakeRegistry().call().await?._0;
-    // let contract_stake_registry = StakeRegistry::new(u, get_provider(&holesky_provider));
-    // let i = contract_stake_registry.delegation().call().await?._0;
-    // let contract_service_manager = MockAvsServiceManager::new(s, get_provider(&holesky_provider));
-    // let d = contract_service_manager.avsDirectory().call().await?._0;
-    // let dm = DelegationManager::new(i, get_provider(&holesky_provider));
-    // let q = dm.slasher().call().await?._0;
-    // dbg!("ss");
 
     let avs_registry_writer = AvsRegistryChainWriter::build_avs_registry_chain_writer(
         test_logger.clone(),
